@@ -1,7 +1,7 @@
 import { NextAuthOptions, getServerSession } from "next-auth";
 import { loginWithGoogle, signIn } from "./firebase/service";
 import CredentialsProvider from "next-auth/providers/credentials";
-import GoogleProfile from "next-auth/providers/google";
+// import GoogleProfile from "next-auth/providers/google";
 import { compare } from "bcrypt";
 
 export const authOptions: NextAuthOptions = {
@@ -26,10 +26,10 @@ export const authOptions: NextAuthOptions = {
       },
     }),
 
-    GoogleProfile({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-    }),
+    // GoogleProfile({
+    //   clientId: process.env.GOOGLE_CLIENT_ID!,
+    //   clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+    // }),
   ],
 
   session: {
@@ -55,17 +55,17 @@ export const authOptions: NextAuthOptions = {
         return token;
       }
 
-      if ((providers = "google")) {
-        const data = {
-          name: user?.name,
-          email: user?.email,
-          type: "google",
-        };
+      // if ((providers = "google")) {
+      //   const data = {
+      //     name: user?.name,
+      //     email: user?.email,
+      //     type: "google",
+      //   };
 
-        await loginWithGoogle(data);
+      //   await loginWithGoogle(data);
 
-        return token;
-      }
+      //   return token;
+      // }
     },
     async session({ token, session }: any) {
       if ("email" in token) {

@@ -56,9 +56,9 @@ export default function LoginComponents() {
         </form>
       </div>
 
-      <div className="mt-8">
+      {/* <div className="mt-8">
         <button onClick={() => signIn("google", { callbackUrl, redirect: false })}>Sign In With Google Account</button>
-      </div>
+      </div> */}
     </div>
   );
 }
